@@ -8,14 +8,14 @@ public class CardDealer {
 
     public static void main(String args[]){
 
-        createPlayers();
+        playerLoop();
         Deck.createDeck(deckOfCards);
         Deck.shuffle(deckOfCards);
-        deal();
-        printCards();
+        deal(players, deckOfCards);
+        printCards(players);
     }
 
-    public static void createPlayers(){
+    public static void playerLoop(){
         int numberOfPlayers;
         Scanner input = new Scanner(System.in);
 
@@ -31,12 +31,16 @@ public class CardDealer {
             }
         }
         System.out.println("There are " + numberOfPlayers + " players.");
+        createPlayers(numberOfPlayers, players);
+    }
+
+    public static void createPlayers(int numberOfPlayers, ArrayList<Player> players){
         for(int i = 0; i < numberOfPlayers; i++){
             players.add(new Player());
         }
     }
 
-    public static void deal(){
+    public static void deal(ArrayList<Player> players, ArrayList<Card> deckOfCards){
         int counter = 0;
         int cardsPerPlayer = Math.floorDiv(deckOfCards.size(), players.size());
 
@@ -47,7 +51,7 @@ public class CardDealer {
         }
     }
 
-    public static void printCards(){
+    public static void printCards(ArrayList<Player> players){
 
         for(int i = 0; i < players.size(); i++){
             System.out.print('\n' + "Cards for player " + (i + 1) + ":" + '\n');
@@ -56,5 +60,4 @@ public class CardDealer {
             }
         }
     }
-
 }

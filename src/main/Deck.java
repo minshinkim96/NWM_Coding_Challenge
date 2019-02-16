@@ -21,5 +21,4 @@ public class Deck {
     public static Card drawCard(ArrayList<Card> deck){
         return deck.remove(deck.size() - 1);
     }
-
 }

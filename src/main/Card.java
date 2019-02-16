@@ -18,8 +18,15 @@ public class Card {
         this.suite = suite;
     }
 
+    public Suite getSuite() {
+        return suite;
+    }
+
+    public Value getValue() {
+        return value;
+    }
+
     public String toString(){
         return value + " of " + suite + '\n';
     }
-
 }
